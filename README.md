@@ -2,15 +2,14 @@
 
 인연 만들기
 
-## Getting Started
+## Todo list
+- Stateless 위젯으로 Getx 상태관리 하는 법 아직도 이해가 잘 안됨
+    - GetBuilder, init, update 부분 더 이해 해볼 것
+    - 현재 안되는 것은 정보 업데이트 후 이전 화면에 업데이트가 안되어 있음
+        - 해결 완료
+    -
+-
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Complete list
+- 설정에 본인 정보 나오는 화면 구현완료
+- 프로필에서 multi select 쪽 구현완료

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:make_destiny/controllers/controllers.dart';
 import 'package:make_destiny/ui/card_view_ui.dart';
-import 'package:make_destiny/ui/components/components.dart';
 import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 import 'package:make_destiny/ui/ui.dart';
 import 'package:get/get.dart';
@@ -49,11 +48,12 @@ class _HomeUIState extends State<HomeUI> {
     return GetBuilder<AuthController>(
       init: AuthController(),
       builder: (controller) =>
-      controller.firestoreUser.value!.uid == null
-          ? Center(
-        child: CircularProgressIndicator(),
-      )
-          : Scaffold(
+      // controller.firestoreUser.value!.uid == null
+      //     ? Center(
+      //   child: CircularProgressIndicator(),
+      // )
+      //     :
+      Scaffold(
           body: PageView(
             physics: NeverScrollableScrollPhysics(),
             children: [

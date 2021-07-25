@@ -56,7 +56,8 @@ class _CardViewUIState extends State<CardViewUI> {
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height * 0.3,
           decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(5), color: Colors.white),
+            border: Border.all(width: 1, color: Colors.grey),
+              borderRadius: BorderRadius.circular(5), color: Colors.transparent),
           child: Column(
             children: [
               Padding(
@@ -134,7 +135,8 @@ class _CardViewUIState extends State<CardViewUI> {
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height * 0.1,
           decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(5), color: Colors.white),
+              border: Border.all(width: 1, color: Colors.grey),
+              borderRadius: BorderRadius.circular(5), color: Colors.transparent),
           child: Row(children: [
             Padding(
               padding: const EdgeInsets.all(8.0),

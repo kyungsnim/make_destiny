@@ -15,6 +15,12 @@ class AuthController extends GetxController {
   TextEditingController nameController = TextEditingController();
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+  TextEditingController favoriteListenController = TextEditingController();
+  TextEditingController introduceMyselfController = TextEditingController();
+  TextEditingController favoriteThingsController = TextEditingController();
+  // TextEditingController nameController = TextEditingController();
+  // TextEditingController emailController = TextEditingController();
+  // TextEditingController passwordController = TextEditingController();
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final FirebaseFirestore _db = FirebaseFirestore.instance;
   Rxn<User> firebaseUser = Rxn<User>();
@@ -114,13 +120,48 @@ class AuthController extends GetxController {
           rating: GravatarRating.pg,
           fileExtension: true,
         );
+
+        /// 추가정보 입력받기
+        /// final String company;
+        /// final String nickName;
+        /// final String whatToDo;
+        /// final int age;
+        /// final int height;
+        /// final String bodyStyle;
+        /// final String address;
+        /// final String married;
+        /// final String religion;
+        /// final String smoking;
+        /// final String drinking;
+        /// final String greetings;
+        /// final List<String> favoriteListen;
+        /// final List<String> introduceMyself;
+        /// final List<String> favoriteThings;
+        // final info = await Navigator.push(context,
+        //     MaterialPageRoute(builder: (context) => RegisterExtraInfoUI()));
+
         //create the new user object
         UserModel _newUser = UserModel(
             uid: result.user!.uid,
             email: result.user!.email!,
             name: nameController.text,
-            photoUrl: gravatarUrl);
-        //create the user in firestore
+            photoUrl: gravatarUrl,
+            company: '미라콤아이앤씨',
+            nickName: '점심은적당히',
+            whatToDo: '개발자',
+            age: 36,
+            height: 172,
+            bodyStyle: '보통',
+            address: '경기도 성남시 분당구',
+            married: '미혼',
+            religion: '무교',
+            smoking: '비흡연',
+            drinking: '술을 좋아해요',
+            greetings: '날 좋을 때 교외로 편하게 드라이브 갈 수 있는 편한 친구같은 분',
+            favoriteListen: ['귀여운 보조개', '짙은 눈썹', '볼매'],
+            introduceMyself: ['웃음이 많아요', '얘기를 잘 들어줘요', '따뜻한 매너', '예의가 발라요', '고기를 잘 구워요'],
+            favoriteThings: ['영화 감상', '음악 감상', '글쓰기', '책읽기']);
+        // create the user in firestore
         _createUserFirestore(_newUser, result.user!);
         emailController.clear();
         passwordController.clear();
@@ -159,7 +200,6 @@ class AuthController extends GetxController {
           _authUpdateUserNoticeTitle = 'auth.updateUserEmailInUse'.tr;
           _authUpdateUserNotice = 'auth.updateUserEmailInUse'.tr;
         } else {
-          
           _authUpdateUserNoticeTitle = 'auth.wrongPasswordNotice'.tr;
           _authUpdateUserNotice = 'auth.wrongPasswordNotice'.tr;
         }
@@ -195,6 +235,24 @@ class AuthController extends GetxController {
   //updates the firestore user in users collection
   void _updateUserFirestore(UserModel user, User _firebaseUser) {
     _db.doc('/users/${_firebaseUser.uid}').update(user.toJson());
+    update();
+  }
+
+  //updates the firestore user in users collection
+  void updateFavoriteListenFirestore(favoriteListenMap, uid) {
+    _db.doc('/users/$uid').update(favoriteListenMap);
+    update();
+  }
+
+  //updates the firestore user in users collection
+  void updateIntroduceMyselfFirestore(introduceMyselfMap, uid) {
+    _db.doc('/users/$uid').update(introduceMyselfMap);
+    update();
+  }
+
+  //updates the firestore user in users collection
+  void updateFavoriteThingsFirestore(favoriteThingsMap, uid) {
+    _db.doc('/users/$uid').update(favoriteThingsMap);
     update();
   }
 
