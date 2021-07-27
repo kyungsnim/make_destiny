@@ -24,12 +24,14 @@ class SignInUI extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: <Widget>[
-                  LogoGraphicHeader(),
-                  SizedBox(height: 48.0),
+                  // LogoGraphicHeader(),
+                  Text('매핑매칭', style: TextStyle(color: Colors.indigo, fontSize: MediaQuery.of(context).size.width * 0.1, fontWeight: FontWeight.bold),),
+                  Text('로그인', style: TextStyle(color: Colors.indigo, fontSize: MediaQuery.of(context).size.width * 0.1, fontWeight: FontWeight.bold),),
+                  SizedBox(height: MediaQuery.of(context).size.height * 0.1),
                   FormInputFieldWithIcon(
                     controller: authController.emailController,
                     iconPrefix: Icons.email,
-                    labelText: 'auth.emailFormField'.tr,
+                    labelText: '회사 메일 주소',
                     validator: Validator().email,
                     keyboardType: TextInputType.emailAddress,
                     onChanged: (value) => null,
@@ -40,7 +42,7 @@ class SignInUI extends StatelessWidget {
                   FormInputFieldWithIcon(
                     controller: authController.passwordController,
                     iconPrefix: Icons.lock,
-                    labelText: 'auth.passwordFormField'.tr,
+                    labelText: '비밀번호',
                     validator: Validator().password,
                     obscureText: true,
                     onChanged: (value) => null,
@@ -58,19 +60,9 @@ class SignInUI extends StatelessWidget {
                       }),
                   FormVerticalSpace(),
                   LabelButton(
-                    labelText: 'auth.resetPasswordLabelButton'.tr,
+                    labelText: '비밀번호 찾기',
                     onPressed: () => Get.to(ResetPasswordUI()),
                   ),
-                  LabelButton(
-                    labelText: 'auth.signUpLabelButton'.tr,
-                    onPressed: () => Get.to(SignUpUI()),
-                  ),
-                  FormVerticalSpace(),
-                  PrimaryButton(
-                      labelText: '구글 로그인',
-                      onPressed: () async {
-
-                      }),
                 ],
               ),
             ),

@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:make_destiny/models/models.dart';
 import 'package:make_destiny/ui/auth/auth.dart';
+import 'package:make_destiny/ui/auth/sign_up_or_sign_in_ui.dart';
 import 'package:make_destiny/ui/ui.dart';
 import 'package:make_destiny/ui/components/components.dart';
 import 'package:make_destiny/helpers/helpers.dart';
@@ -52,9 +53,10 @@ class AuthController extends GetxController {
       await isAdmin();
     }
 
+    /// 앱 시작시 기존 로그인했던 사용자라면 바로 HomeUI로, 로그인 필요한 사용자라면 SignInUI 페이지로 이동
     if (_firebaseUser == null) {
       print('Send to signin');
-      Get.offAll(SignInUI());
+      Get.offAll(SignUpOrSignInUI()); // SignInUI());
     } else {
       Get.offAll(HomeUI(0));
     }

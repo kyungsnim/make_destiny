@@ -109,23 +109,25 @@ class UpdateProfileUI extends StatelessWidget {
                                 Get.to(FavoriteListenSelectUI(controller
                                         .firestoreUser.value!.favoriteListen))!
                                     .then((val) {
-                                  favoriteListenLists = val;
+                                  if (val != null) {
+                                    favoriteListenLists = val;
 
-                                  /// 업데이트 화면에서 DB에 저장하고 그 값을 리턴해주는데 리턴값을 받아와 이 곳에 같이 업데이트 해줌
-                                  listenLists = "";
-                                  favoriteListenLists.forEach((item) {
-                                    listenLists += "$item, ";
-                                  });
-                                  authController.favoriteListenController.text =
-                                      listenLists;
-                                  Get.snackbar(
-                                      "업데이트 완료", "\'이런 소리를 자주 들어요\' 업데이트 완료",
-                                      snackPosition: SnackPosition.BOTTOM,
-                                      duration: Duration(seconds: 4),
-                                      backgroundColor: Get
-                                          .theme.snackBarTheme.backgroundColor,
-                                      colorText: Get
-                                          .theme.snackBarTheme.actionTextColor);
+                                    /// 업데이트 화면에서 DB에 저장하고 그 값을 리턴해주는데 리턴값을 받아와 이 곳에 같이 업데이트 해줌
+                                    listenLists = "";
+                                    favoriteListenLists.forEach((item) {
+                                      listenLists += "$item, ";
+                                    });
+                                    authController.favoriteListenController
+                                        .text = listenLists;
+                                    Get.snackbar(
+                                        "업데이트 완료", "\'이런 소리를 자주 들어요\' 업데이트 완료",
+                                        snackPosition: SnackPosition.BOTTOM,
+                                        duration: Duration(seconds: 4),
+                                        backgroundColor: Get.theme.snackBarTheme
+                                            .backgroundColor,
+                                        colorText: Get.theme.snackBarTheme
+                                            .actionTextColor);
+                                  }
                                 });
                               },
                               child: DisableFormInputFieldWithIcon(
@@ -142,23 +144,25 @@ class UpdateProfileUI extends StatelessWidget {
                                 Get.to(IntroduceMyselfSelectUI(controller
                                         .firestoreUser.value!.introduceMyself))!
                                     .then((val) {
-                                  introduceMyselfLists = val;
+                                  if (val != null) {
+                                    introduceMyselfLists = val;
 
-                                  /// 업데이트 화면에서 DB에 저장하고 그 값을 리턴해주는데 리턴값을 받아와 이 곳에 같이 업데이트 해줌
-                                  introduceLists = "";
-                                  introduceMyselfLists.forEach((item) {
-                                    introduceLists += "$item, ";
-                                  });
-                                  authController.introduceMyselfController
-                                      .text = introduceLists;
-                                  Get.snackbar(
-                                      "업데이트 완료", "\'저는 이런 사람이에요\' 업데이트 완료",
-                                      snackPosition: SnackPosition.BOTTOM,
-                                      duration: Duration(seconds: 4),
-                                      backgroundColor: Get
-                                          .theme.snackBarTheme.backgroundColor,
-                                      colorText: Get
-                                          .theme.snackBarTheme.actionTextColor);
+                                    /// 업데이트 화면에서 DB에 저장하고 그 값을 리턴해주는데 리턴값을 받아와 이 곳에 같이 업데이트 해줌
+                                    introduceLists = "";
+                                    introduceMyselfLists.forEach((item) {
+                                      introduceLists += "$item, ";
+                                    });
+                                    authController.introduceMyselfController
+                                        .text = introduceLists;
+                                    Get.snackbar(
+                                        "업데이트 완료", "\'저는 이런 사람이에요\' 업데이트 완료",
+                                        snackPosition: SnackPosition.BOTTOM,
+                                        duration: Duration(seconds: 4),
+                                        backgroundColor: Get.theme.snackBarTheme
+                                            .backgroundColor,
+                                        colorText: Get.theme.snackBarTheme
+                                            .actionTextColor);
+                                  }
                                 });
                               },
                               child: DisableFormInputFieldWithIcon(
@@ -175,23 +179,25 @@ class UpdateProfileUI extends StatelessWidget {
                                 Get.to(FavoriteThingsSelectUI(controller
                                         .firestoreUser.value!.favoriteThings))!
                                     .then((val) {
-                                  favoriteThingsLists = val;
+                                  if (val != null) {
+                                    favoriteThingsLists = val;
 
-                                  /// 업데이트 화면에서 DB에 저장하고 그 값을 리턴해주는데 리턴값을 받아와 이 곳에 같이 업데이트 해줌
-                                  thingsLists = "";
-                                  favoriteThingsLists.forEach((item) {
-                                    thingsLists += "$item, ";
-                                  });
-                                  authController.favoriteThingsController.text =
-                                      thingsLists;
-                                  Get.snackbar(
-                                      "업데이트 완료", "\'저의 관심사는요\' 업데이트 완료",
-                                      snackPosition: SnackPosition.BOTTOM,
-                                      duration: Duration(seconds: 4),
-                                      backgroundColor: Get
-                                          .theme.snackBarTheme.backgroundColor,
-                                      colorText: Get
-                                          .theme.snackBarTheme.actionTextColor);
+                                    /// 업데이트 화면에서 DB에 저장하고 그 값을 리턴해주는데 리턴값을 받아와 이 곳에 같이 업데이트 해줌
+                                    thingsLists = "";
+                                    favoriteThingsLists.forEach((item) {
+                                      thingsLists += "$item, ";
+                                    });
+                                    authController.favoriteThingsController
+                                        .text = thingsLists;
+                                    Get.snackbar(
+                                        "업데이트 완료", "\'저의 관심사는요\' 업데이트 완료",
+                                        snackPosition: SnackPosition.BOTTOM,
+                                        duration: Duration(seconds: 4),
+                                        backgroundColor: Get.theme.snackBarTheme
+                                            .backgroundColor,
+                                        colorText: Get.theme.snackBarTheme
+                                            .actionTextColor);
+                                  }
                                 });
                               },
                               child: DisableFormInputFieldWithIcon(
@@ -212,51 +218,51 @@ class UpdateProfileUI extends StatelessWidget {
     );
   }
 
-  // Future<void> _updateUserConfirm(
-  //     BuildContext context, UserModel updatedUser, String oldEmail) async {
-  //   final AuthController authController = AuthController.to;
-  //   final TextEditingController _password = new TextEditingController();
-  //   return Get.dialog(
-  //     AlertDialog(
-  //       shape: RoundedRectangleBorder(
-  //           borderRadius: BorderRadius.all(Radius.circular(8.0))),
-  //       title: Text(
-  //         'auth.enterPassword'.tr,
-  //       ),
-  //       content: FormInputFieldWithIcon(
-  //         controller: _password,
-  //         iconPrefix: Icons.lock,
-  //         labelText: 'auth.passwordFormField'.tr,
-  //         validator: (value) {
-  //           String pattern = r'^.{6,}$';
-  //           RegExp regex = RegExp(pattern);
-  //           if (!regex.hasMatch(value!))
-  //             return 'validator.password'.tr;
-  //           else
-  //             return null;
-  //         },
-  //         obscureText: true,
-  //         onChanged: (value) => null,
-  //         onSaved: (value) => _password.text = value!,
-  //         maxLines: 1,
-  //       ),
-  //       actions: <Widget>[
-  //         new TextButton(
-  //           child: new Text('auth.cancel'.tr.toUpperCase()),
-  //           onPressed: () {
-  //             Get.back();
-  //           },
-  //         ),
-  //         new TextButton(
-  //           child: new Text('auth.submit'.tr.toUpperCase()),
-  //           onPressed: () async {
-  //             Get.back();
-  //             await authController.updateUser(
-  //                 context, updatedUser, oldEmail, _password.text);
-  //           },
-  //         )
-  //       ],
-  //     ),
-  //   );
-  // }
+// Future<void> _updateUserConfirm(
+//     BuildContext context, UserModel updatedUser, String oldEmail) async {
+//   final AuthController authController = AuthController.to;
+//   final TextEditingController _password = new TextEditingController();
+//   return Get.dialog(
+//     AlertDialog(
+//       shape: RoundedRectangleBorder(
+//           borderRadius: BorderRadius.all(Radius.circular(8.0))),
+//       title: Text(
+//         'auth.enterPassword'.tr,
+//       ),
+//       content: FormInputFieldWithIcon(
+//         controller: _password,
+//         iconPrefix: Icons.lock,
+//         labelText: 'auth.passwordFormField'.tr,
+//         validator: (value) {
+//           String pattern = r'^.{6,}$';
+//           RegExp regex = RegExp(pattern);
+//           if (!regex.hasMatch(value!))
+//             return 'validator.password'.tr;
+//           else
+//             return null;
+//         },
+//         obscureText: true,
+//         onChanged: (value) => null,
+//         onSaved: (value) => _password.text = value!,
+//         maxLines: 1,
+//       ),
+//       actions: <Widget>[
+//         new TextButton(
+//           child: new Text('auth.cancel'.tr.toUpperCase()),
+//           onPressed: () {
+//             Get.back();
+//           },
+//         ),
+//         new TextButton(
+//           child: new Text('auth.submit'.tr.toUpperCase()),
+//           onPressed: () async {
+//             Get.back();
+//             await authController.updateUser(
+//                 context, updatedUser, oldEmail, _password.text);
+//           },
+//         )
+//       ],
+//     ),
+//   );
+// }
 }
