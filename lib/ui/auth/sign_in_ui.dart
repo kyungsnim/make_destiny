@@ -14,6 +14,9 @@ class SignInUI extends StatelessWidget {
 
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text('로그인', style: TextStyle(color: Colors.white)),
+      ),
       body: Form(
         key: _formKey,
         child: Padding(
